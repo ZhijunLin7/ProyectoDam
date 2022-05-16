@@ -1,0 +1,109 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+header {
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+
+main { text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-color: black;
+ border-inline-style: rgb (216,216,216) ;
+ width: 300px;
+ border: 15px solid green;
+ padding:200px;
+ margin: 40px;
+}
+
+
+p.log-form {
+  width: 300px;
+  border: 15px solid green;
+  padding:200px;
+  margin: 40px;}
+
+
+p.box1 {
+  width: 300px;
+  border: 15px solid green;
+  padding:200px;
+  margin: 40px;}
+  
+footer {
+
+  text-align: center;
+  background-color: rgb(216,216,216);
+}
+
+
+h3 { text-align: center;}
+
+a { text-align: center;}
+
+
+link { color: #000000; border: 3px solid #a80b0b; box-shadow: 2px 2px 7px 1px #ff5e2d;  } 
+  
+
+link:hover { color: #141414; }
+
+h2 {
+  text-decoration-color: rgb(255, 255, 255);
+  width: 100%;
+  color: lighten(rgb(226, 226, 226), 20%);
+  font-family: 'open sans condensed';
+  font-size: 1.35em;
+  display: block;
+  background:(rgb(180, 180, 180), 20%);
+  width: 100%;
+  text-transform: uppercase;
+  padding: .50em 1em .50em 1.5em;
+  box-shadow:inset 0px 1px 1px fadeout(rgb(255, 255, 255), 95%);
+  border: 1px solid darken(rgb(214, 211, 211), 5%);
+  text-shadow: 0px 1px 1px darken(rgb(8, 8, 8), 5%);
+  margin: 0;
+  font-weight: 200;
+}
+
+form {
+  text-align: center;
+}
+
+
+
+.log-form {
+  text-align: center;
+  width: 40%;
+  min-width: 320px;
+  max-width: 475px;
+ background-color: (216,216,216);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+-moz-transform: translate(-50%,-50%);
+-o-transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%);
+transform: translate(-50%,-50%);
+  
+  box-shadow: 0px 2px 5px rgba(0,0,0,.25);
+  
+  @media(max-width: 40em){
+    width: 95%;
+    position: relative;
+    margin: 2.5% auto 0 auto;
+    left: 0%;
+  -webkit-transform: translate(0%,0%);
+-moz-transform: translate(0%,0%);
+-o-transform: translate(0%,0%);
+-ms-transform: translate(0%,0%);
+transform: translate(0%,0%);
+  }
+  
+ 
+  
+ 
+
+}
+
