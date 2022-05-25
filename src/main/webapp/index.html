@@ -4,26 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>Door's</title>
-    <script src="Js/Usuario.js"></script>
+    <title>>Door's Login </title>
+    <link rel="stylesheet" href="css\Login.css">
+    <script src="Js/Login.js"></script>
 
 </head>
+
 <body>
 
+<main>
+  
+  <article id="izquierda">
+    <button>Jugar sin registrar</button>
+  </article>
+  <article id="derecha">
+    <article >
+      <section onclick="AlLogin()" id="AlLogin"><p>Login</p></section>
+      <section onclick="AlRegistrar()" id="AlRegistrar"><p>Registrar</p></section>
+    </article>
+    <h3 id="resultado"></h3>
+    <section id="box1">
+      <form>
+        <input type="text" title="username" placeholder="Nombre de Usuario" id="username" />
+        <input type="password" title="Contraseña" placeholder="Contraseña" id="password" />
+        <input type="password" title="Confirmar_Contraseña" placeholder="Confirmar Contraseña" id="password2" />
+        <button type="button" onclick="registrar()">Registrar</button>
+      </form>
+    </section> 
+    <section id="box2">
+      <form>
+        <input type="text" title="username" placeholder="Nombre de Usuario" id="usernamelogin" />
+        <input type="password" title="username" placeholder="Contraseña" id="passwordlogin"/>
+        <button type="button" onclick="login() ">Login</button>
+      </form>   
+    </section> 
+  </article>
 
-   
+</main>
+                                                                                       
 
 
-  <input type="text" title="username" placeholder="username" id="username"/> <br>
-  <input type="password" title="password" placeholder="password" id="password" /><br>
-  <input type="password" title="password" placeholder="password2" id="password2" /><br>
-  <button type="submit" onclick="login()" value="login">Login</button>
-  <button type="submit" onclick="registrar()" value="registrar" >registrar</button>
-  <h1 id="resultat"></h1>
- 
+    
+    
+    
 
 
-   
+
     
 </body>
 </html>
