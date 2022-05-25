@@ -23,7 +23,7 @@ public class BaseDatos {
 
         if (rs.next()==true) {
             if (contrasena.equals(rs.getString("contrasena"))) {
-                return "Sesion iniciada correctamente";
+                return rs.getString("id_usuario");
             }
             else{
                 return "Error de contrasena";
