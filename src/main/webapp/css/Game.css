@@ -79,15 +79,15 @@ body {
   margin-top: 45%; 
   border-top: 4px solid;
 }
-.btn1 {
+.atacar {
   height: 100px;
   width: 100px;
 }
-.btn2 {
+.objeto {
   height: 100px;
   width: 100px;
 }
-.btn3 {
+.habilidad {
   height: 100px;
   width: 100px;
 }

@@ -9,10 +9,11 @@ public abstract class Entidad {
     private int hp;
     private int mp;
     private int fuerza;
-    private int inteligencia;
+    private int agilidad;
     private int vitalidad;
     private int voluntad;
-    private int agilidad;
+    private int inteligencia;
+    private int destreza;
     private int dano;
     private int precision;
     private int velocidadAtaque;
@@ -22,11 +23,13 @@ public abstract class Entidad {
     private int danoMagia;
     private int defensa;
     private int criticoMagico;
+    private int danoMagico;
+    private int danoCriticoMagico;
     private int defensaMagica;
     private ArrayList<Habilidad> habilidades;
     public String descripcion;
 
-    public Entidad(String nombre, int nivel, int hpMax, int mpMax, int hp, int mp, int fuerza, int inteligencia, int vitalidad, int voluntad, int agilidad, int dano, int precision, int velocidadAtaque, int critico, int danoCritico, int evasion, int danoMagia, int defensa, int criticoMagico, int defensaMagica) {
+    public Entidad(String nombre, int nivel, int hpMax, int mpMax, int hp, int mp, int fuerza, int agilidad, int vitalidad, int voluntad, int inteligencia, int destreza, int dano, int precision, int velocidadAtaque, int critico, int danoCritico, int evasion, int danoMagia, int defensa, int criticoMagico, int defensaMagica, ArrayList<Habilidad> habilidades, String descripcion) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.hpMax = hpMax;
@@ -34,10 +37,11 @@ public abstract class Entidad {
         this.hp = hp;
         this.mp = mp;
         this.fuerza = fuerza;
-        this.inteligencia = inteligencia;
+        this.agilidad = agilidad;
         this.vitalidad = vitalidad;
         this.voluntad = voluntad;
-        this.agilidad = agilidad;
+        this.inteligencia = inteligencia;
+        this.destreza = destreza;
         this.dano = dano;
         this.precision = precision;
         this.velocidadAtaque = velocidadAtaque;
@@ -48,6 +52,8 @@ public abstract class Entidad {
         this.defensa = defensa;
         this.criticoMagico = criticoMagico;
         this.defensaMagica = defensaMagica;
+        this.habilidades = habilidades;
+        this.descripcion = descripcion;
     }
 
     public Entidad() {
@@ -149,6 +155,14 @@ public abstract class Entidad {
         this.agilidad = agilidad;
     }
 
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+
     public int getDano() {
         return dano;
     }
@@ -235,6 +249,22 @@ public abstract class Entidad {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public int getDanoMagico() {
+        return danoMagico;
+    }
+
+    public void setDanoMagico(int danoMagico) {
+        this.danoMagico = danoMagico;
+    }
+
+    public int getDanoCriticoMagico() {
+        return danoCriticoMagico;
+    }
+
+    public void setDanoCriticoMagico(int danoCriticoMagico) {
+        this.danoCriticoMagico = danoCriticoMagico;
     }
 
     public void atacar(Entidad atacado) {

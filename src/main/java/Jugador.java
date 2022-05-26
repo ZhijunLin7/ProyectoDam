@@ -9,6 +9,31 @@ public class Jugador extends Entidad{
     private int exp;
     private ArrayList<Objeto> inventario;
 
+    public Jugador() {
+        Random r = new Random();
+        this.setFuerza(r.nextInt(4) + 1);
+        this.setAgilidad(r.nextInt(4) + 1);
+        this.setVitalidad(r.nextInt(4) + 1);
+        this.setVoluntad(r.nextInt(4) + 1);
+        this.setInteligencia(r.nextInt(4) + 1);
+        this.setDestreza(r.nextInt(4) + 1);
+        this.setDano(this.getFuerza() * 2);
+        this.setPrecision(this.getDestreza() * 2);
+        this.setVelocidadAtaque(this.getAgilidad() * 2);
+        this.setCritico(this.getDestreza() * 2);
+        this.setDanoCritico(this.getFuerza());
+        this.setEvasion(this.getAgilidad() * 1);
+        this.setDanoMagia(this.getVoluntad() * 2);
+        this.setHpMax(this.getVitalidad() * 4);
+        this.setMpMax(this.getInteligencia() * 3);
+        this.setHp(this.getHpMax());
+        this.setMp(this.getMpMax());
+        this.setDefensa(this.getVitalidad() * 2);
+        this.setCriticoMagico(this.getInteligencia() * 2);
+        this.setDefensaMagica(this.getVoluntad());
+        this.setDanoCriticoMagico(this.getInteligencia());
+    }
+
     public int getIdPersonaje() {
         return idPersonaje;
     }
@@ -46,16 +71,16 @@ public class Jugador extends Entidad{
         int i = 0;
         boolean encontrado = false;
         if (this.exp >= this.expSubida) {
-            this.nivel++;
+            this.setNivel(this.getNivel() + 1);
             this.exp = this.exp - this.expSubida;
-            this.expSubida = 100 * this.nivel;
-            this.hpMax = this.hpMax + r.nextInt(4 )+ 1;
-            this.mpMax = this.mpMax + r.nextInt(4) + 1;
-            this.hp = this.hpMax;
-            this.mp = this.mpMax;
-            this.fuerza = this.fuerza + r.nextInt(4)+1;
-            this.inteligencia = this.inteligencia + r.nextInt(4) + 1;
-            this.defensa = this.defensa + r.nextInt(4) + 1;
+            this.expSubida = 100 * this.getNivel();
+            this.setHp(this.getHpMax());
+            this.setMp(this.getMpMax());
+            this.setFuerza(this.getFuerza() + r.nextInt(4)+1);
+            this.setInteligencia(this.getInteligencia() + r.nextInt(4) + 1);
+            this.setVitalidad(this.getVitalidad() + r.nextInt(4) + 1);
+            this.setVoluntad(this.getVoluntad() + r.nextInt(4) + 1);
+            this.setAgilidad(this.getAgilidad() + r.nextInt(4) + 1);
             System.out.println("Has subido a nivel "+this.nivel);
         }
     }

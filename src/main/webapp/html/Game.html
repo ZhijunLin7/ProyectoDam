@@ -10,7 +10,7 @@
 
 
 </head>
-<body>
+<body onload="juego()">
     <!--Estadistica de jugador situado en izquierda-->
     <!--Boton para abrir panel estadistica-->
     <section id="jugador" onclick="estadistica()">
@@ -24,7 +24,7 @@
         </section>
       </section>
     <!--Panel estadistica-->
-     <aside id="izquierda">
+     <section id="izquierda">
         <section id="paneljugador">
             <ul>
                 <li>Nivel:<span></span></li>
@@ -46,7 +46,7 @@
                 <li>Fuerza:<span></span></li>
             </ul>
         </section>
-    </aside>
+    </section>
 
 
 
@@ -68,7 +68,7 @@
         </section>
       </section>
       <!--Inventario de jugador-->
-     <aside id="derecha">
+     <section id="derecha">
         <section id="panelinventario">
             <ul>
                 <li>Nivel:<span></span></li>
@@ -90,7 +90,7 @@
                 <li>Fuerza:<span></span></li>
             </ul>
         </section>
-    </aside>
+    </section>
 
 
     
@@ -100,16 +100,16 @@
 
     <section class="interfazjuego">
         <article></article>
-    </sectio4n>
+    </section>
 
 
   
 
     <article class="botones1">
         <legend>Botones de accion</legend>
-        <button type="button" class="btn1">accion 1</button>
-        <button type="button" class="btn2">accion 2</button>
-        <button type="button" class="btn3">accion 3</button>
+        <button type="button" class="atacar" onclick="atacar()">Atacar</button>
+        <button type="button" class="objeto" onclick="objeto()">Objeto</button>
+        <button type="button" class="habilidad" onclick="habilidad()">Habilidad</button>
         <button type="button" class="btn4">accion 4</button>
         <button type="button" class="btn5">accion 5</button>
         <button type="button" class="btn6">accion 6</button>

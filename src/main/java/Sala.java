@@ -6,6 +6,7 @@ public class Sala {
     private int num;
     private String tipo;
     private ArrayList<Enemigo> enemigos;
+    private ArrayList<Objeto> recompensa;
 
     public Sala() {
         this.numTotal++;
@@ -61,7 +62,7 @@ public class Sala {
                     this.enemigos.add(enemigo);                }
                 break;
             case "Tesoro":
-                int objetoSala = r.nextInt(5);
+                int idObjeto = r.nextInt(listaObjetos.size());
                 break;
         }
     }

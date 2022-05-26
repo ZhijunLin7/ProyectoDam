@@ -42,13 +42,7 @@ public class Combate {
             teclado.nextLine();
             switch (opcionMenu) {
                 case 1:
-                    ataque = jugador.atacar(enemigo);
-                    if (ataque == 0) {
-                        System.out.println("Has fallado!");
-                    } else {
-                        System.out.println("Has hecho " + ataque + " puntos de daño.");
-                        enemigo.setHp(enemigo.getHp() - ataque);
-                    }
+                    jugador.atacar(enemigo);
                     break;
                 case 2:
                     ataque = jugador.magia(enemigo.getDefensa());
@@ -66,13 +60,7 @@ public class Combate {
                     break;
             }
             System.out.println(enemigo.getNombre() + " ataca!");
-            ataque = enemigo.ataque(jugador.getDefensa());
-            if (ataque == 0) {
-                System.out.println("El ataque ha fallado!");
-            } else {
-                System.out.println(enemigo.getNombre() + " te ha hecho " + ataque + " puntos de daño.");
-                jugador.setHp(jugador.getHp() - ataque);
-            }
+            enemigo.atacar(jugador);
         }
     }
 }
