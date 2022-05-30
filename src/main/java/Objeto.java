@@ -1,25 +1,23 @@
-public class Objeto {
-    private String nombre;
-    private static int idroot = 0;
+import java.util.ArrayList;
+
+public class Objeto extends Entidad{
     private int id;
     private String descripcion;
     private int cantidad;
 
     public Objeto(){}
-    public Objeto(String nombre, String descripcion, int cantidad) {
-        this.idroot++;
-        id=idroot;
+
+    public Objeto(String nombre, int hpMax, int hp, int mpMax, int mp, int fuerza, int inteligencia, int defensa, String descripcion, int cantidad) {
         this.setNombre(nombre);
+        this.setHpMax(hpMax);
+        this.setHp(hp);
+        this.setMpMax(mpMax);
+        this.setMp(mp);
+        this.setFuerza(fuerza);
+        this.setInteligencia(inteligencia);
+        this.setDefensa(defensa);
         this.setDescripcion(descripcion);
         this.setCantidad(cantidad);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public int getId() {
@@ -44,6 +42,14 @@ public class Objeto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public static Objeto buscarObjeto(String nombre, ArrayList<Objeto> listaObjetos) {
+        for (int i = 0; i < listaObjetos.size(); i++) {
+            if (listaObjetos.get(i).getNombre().equals(nombre)) {
+                return listaObjetos.get(i);
+            }
+        }
     }
 
     public void pocionSalud(Jugador jugador) {

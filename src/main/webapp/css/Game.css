@@ -231,7 +231,7 @@ body {
 }
 
 
-#batallaingfo{
+#batallainfo{
   border: 2px solid white;
   display: block;
   position: absolute;
@@ -244,7 +244,7 @@ body {
 
 
 #batalla{
-  margin-left: 31%;
+  margin-left: 35%;
   border: 2px solid white;
   display: flex;
   justify-content: space-around;
@@ -258,7 +258,7 @@ body {
 
 
 }
-#batalla #vida,#monster-vida{
+#batalla #vida #sala,#monster-vida{
   width: 90%;
 
 }

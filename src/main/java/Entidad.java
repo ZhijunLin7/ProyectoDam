@@ -13,6 +13,8 @@ public class Entidad {
     private int inteligencia;
     private int defensa;
 
+    public Entidad(){}
+
     public Entidad(String nombre, int nivel, int expSubida, int exp, int hpMax, int mpMax, int hp, int mp, int fuerza, int inteligencia, int defensa) {
         this.nombre = nombre;
         this.nivel = nivel;

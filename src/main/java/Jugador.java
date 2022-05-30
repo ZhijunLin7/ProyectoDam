@@ -4,14 +4,33 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Jugador extends Entidad{
+    private int id;
     private ArrayList<Objeto> inventario;
 
     public Jugador() {
     }
 
-    public static void crearjugador() {
+    public ArrayList<Objeto> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(ArrayList<Objeto> inventario) {
+        this.inventario = inventario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static Jugador crearjugador(ArrayList<Objeto> listaObjetos) {
         Random r = new Random();
+        ArrayList<Objeto> inventario = new ArrayList<Objeto>();
         Jugador jugador = new Jugador();
+        jugador.setInventario(inventario);
         jugador.setNivel(1);
         jugador.setExpSubida(100);
         jugador.setExp(0);
@@ -22,6 +41,12 @@ public class Jugador extends Entidad{
         jugador.setFuerza(r.nextInt(9)+1);
         jugador.setInteligencia(r.nextInt(9)+1);
         jugador.setDefensa(r.nextInt(9)+1);
+        for (int i = 0; i < 5; i++) {
+            jugador.getInventario().add(Objeto.buscarObjeto("Pocion de vida"));
+            jugador.getInventario().get(i).setCantidad(jugador.getInventario().get(i).getCantidad()++);
+        }
+
+        return jugador;
     }
 
     public void subirNivel() {
@@ -88,4 +113,6 @@ public class Jugador extends Entidad{
 
         }
     }
+
+
 }

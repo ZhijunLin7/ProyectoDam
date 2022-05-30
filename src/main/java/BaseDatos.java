@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * BaseDatos
@@ -58,6 +59,54 @@ public class BaseDatos {
             return "Ya existe el Usuario introducido";
         } 
         
+    }
+
+    public static ArrayList<Objeto> obtenerObjetos() throws ClassNotFoundException, SQLException {
+        ArrayList<Objeto> listaObjetos = new ArrayList<Objeto>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        String url = "jdbc:mysql://localhost:3308/proyectodam";
+        String query = "SELECT * FROM objetos";
+
+        Connection con = DriverManager.getConnection(url, "root", "");
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()) {
+            Objeto objeto = new Objeto(rs.getString("nombre"), rs.getInt("hpMax"), rs.getInt("hp"), rs.getInt("mpMax"), rs.getInt("mp"), rs.getInt("fuerza"), rs.getInt("inteligencia"), rs.getInt("defensa"), rs.getString("descripcion"), rs.getInt("cantidad"));
+            listaObjetos.add(objeto);
+        }
+        return listaObjetos;
+    }
+
+    public static ArrayList<Enemigo> obtenerEnemigos() throws ClassNotFoundException, SQLException {
+        ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        String url = "jdbc:mysql://localhost:3308/proyectodam";
+        String query = "SELECT * FROM enemigos";
+
+        Connection con = DriverManager.getConnection(url, "root", "");
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()) {
+            Enemigo enemigo = new Enemigo(rs.getInt("id"),rs.getString("nombre"), rs.getInt("hpMax"), rs.getInt("hp"), rs.getInt("mpMax"), rs.getInt("mp"), rs.getInt("fuerza"), rs.getInt("inteligencia"), rs.getInt("defensa"));
+            listaEnemigos.add(enemigo);
+        }
+        return listaEnemigos;
+    }
+
+    public void guardarJugador(Jugador jugador) throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        String url = "jdbc:mysql://localhost:3308/proyectodam";
+        String query = "SELECT * FROM personaje where id='"+jugador.getId()+"'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        if (!rs.next()) {
+            String query2= "INSERT INTO jugador (id, ) VALUES ('"+Nom_usuario+"','"+contrasena+"')";
+        }
+
     }
     
 }

@@ -1,80 +1,27 @@
 import java.util.Random;
 
-public class Enemigo {
-    private String nombre;
-    private int hpMax;
-    private int mpMax;
-    private int hp;
-    private int mp;
-    private int ataque;
-    private int defensa;
+public class Enemigo extends Entidad{
+    private int id;
 
-    public Enemigo() {
-        Random r = new Random();
-        this.hpMax = r.nextInt(25) + 10;
-        this.mpMax = r.nextInt(25) + 10;
-        this.hp = this.hpMax;
-        this.mp = this.mpMax;
-        this.ataque = r.nextInt(4) + 2;
-        this.defensa = r.nextInt(4) + 2;
+    public Enemigo(int id, String nombre, int hpMax, int hp, int mpMax, int mp, int fuerza, int inteligencia, int defensa) {
+        this.setId(id);
+        this.setNombre(nombre);
+        this.setHpMax(hpMax);
+        this.setHp(hp);
+        this.setMpMax(mpMax);
+        this.setMp(mp);
+        this.setFuerza(fuerza);
+        this.setInteligencia(inteligencia);
+        this.setDefensa(defensa);
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getId() {
+        return id;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public int getHpMax() {
-        return hpMax;
-    }
-
-    public void setHpMax(int hpMax) {
-        this.hpMax = hpMax;
-    }
-
-    public int getMpMax() {
-        return mpMax;
-    }
-
-    public void setMpMax(int mpMax) {
-        this.mpMax = mpMax;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getMp() {
-        return mp;
-    }
-
-    public void setMp(int mp) {
-        this.mp = mp;
-    }
-
-    public int getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
-
-    public int getDefensa() {
-        return defensa;
-    }
-
-    public void setDefensa(int defensa) {
-        this.defensa = defensa;
-    }
-
 
     public void subirDificultad(int numeroSala) {
         Random r = new Random();
