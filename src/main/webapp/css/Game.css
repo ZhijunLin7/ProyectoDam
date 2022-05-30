@@ -2,6 +2,81 @@ body {
   margin: 0;
   overflow-x: hidden;
   font-weight: bold;
+  background-color: #1d262b;
+  color: white;
+}
+
+/*Seccion de creacion de personaje*/
+
+.charcrear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 30;
+  min-height: 600px;
+  display: none;
+}
+
+.create_contener {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.charcrear form {
+  max-width: 300px;
+  border: 1px solid ;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.charcrear .header{
+  border-bottom: 2px solid;
+}
+
+.charcrear h2 {
+  text-align: center;
+}
+.charcrear ul {
+  list-style-type: none;
+  margin-left: -15%;
+}
+
+.charcrear li {
+  margin-bottom: 5px;
+}
+
+.charcrear button,
+.charcrear input,
+.charcrear select {
+  width: 100%;
+}
+
+.charcrear h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Seccion del juego*/
+#juego{
+  display: block;
 }
 
 /*Boton para desplegar izquierda*/
@@ -64,91 +139,48 @@ body {
 }
 
 
-
-
-
-.interfazjuego{
-  border: 4px solid;
-  width: 99%;
-  margin-left: 0.6%;
-
-  border-radius:30px;
-
-}
-.botones1 {
-  margin-top: 45%; 
-  border-top: 4px solid;
-}
-.btn1 {
-  height: 100px;
-  width: 100px;
-}
-.btn2 {
-  height: 100px;
-  width: 100px;
-}
-.btn3 {
-  height: 100px;
-  width: 100px;
-}
-.btn4 {
-  height: 100px;
-  width: 100px;
-}
-.btn5 {
-  height: 100px;
-  width: 100px;
-}
-.btn6 {
-  height: 100px;
-  width: 100px;
-}
-
-
-
-
 /*Boton para desplegar derecha*/
 #inventario{
   background-color: #1d262b;
-  color: aliceblue;
   position: absolute;
   z-index: 10;
   top: 10px;
-  right: 0px;
+  right: 10px;
   border: 1px solid rgba(255,255,255,.3);
-  padding-left: 10px;
   cursor: pointer;
   transition: all .3s ease;
   box-sizing: border-box;
   border: 2px solid;
-  padding-right: 2%;
+  color: aliceblue;
+  width: 10%;
+  height: 15%;
 }
-#inventario article{
-  float: right;
-  padding: 5px;
-}
+
 #inventario ul{
   list-style-type: none;
 }
-/*Seccion que contiene objeto de personaje*/
+#inventario img{
+  width: 100%;
+  height:100%;
+}
+/*Seccion que contiene los inventario de personaje*/
 #derecha {
   display: inline;
   position: relative;
   top: 0;
-  right: -100%; 
+  right: -300px;
   overflow: hidden;
   width: calc(100% + 300px);
   transition: all 0.5s ease;
-  
 }
 #derecha.active{
-  right: -68%;
+  right: 0px;
 }
+/*Panel inventario*/
 #panelinventario {
-  
   width: 300px;
   height: 100vh;
-  float: left;
+  float: right;
   border-left: 1px solid ;
   box-sizing: border-box;
   padding-top: 90px;
@@ -161,10 +193,103 @@ body {
 #panelinventario ul{
   list-style-type: none;
   margin-left: -40px;
-  margin-top: 15%;
+  margin-top: 25%;
+  
 }
 #panelinventario li{
   margin: 7%;
+  border: 3px solid red;
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
+
+#panelinventario img{
+  width:  50%;
+  height: 50%;
+}
+
+
+/*Parte juego*/
+#areaopcion{
+  height: 100vh;
+  position: relative;
+  border: 3px solid red;
+}
+
+#quehacer{
+  display: flex;
+  border: 2px solid white;
+  width: 50%;
+  justify-content: space-between;
+  height: 100px;
+  margin-left: 25%;
+  
+}
+#quehacer button{
+  width: 100px;
+}
+
+
+#batallaingfo{
+  border: 2px solid white;
+  display: block;
+  position: absolute;
+  width: 15%;
+  height: 89%;
+  margin-left: 300px;
+  word-break: keep-all;
+  overflow: auto;
+}
+
+
+#batalla{
+  margin-left: 31%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-around;
+}
+#batalla progress{
+  display: flex;
+
+}
+#batalla img{
+  width: 20%;
+
+
+}
+#batalla #vida,#monster-vida{
+  width: 90%;
+
+}
+
+
+
+
+
+
+
+#opciones{
+  display: none;
+  border: 2px solid white;
+  width: 50%;
+  margin-left: 25%;
+  justify-content: space-between;
+  height: 100px;
+  position: absolute;
+  bottom: -100px;
+  transition: all .3s ease;
+}
+#opciones.active{
+  bottom: 0px;
+  
+}
+
+#opciones button{
+  width: 100px;
+}
+
+
+
 
 

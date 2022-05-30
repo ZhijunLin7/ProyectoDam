@@ -11,15 +11,48 @@
 
 </head>
 <body>
+
+ 
+  <section class="charcrear">
+    <article class="header">
+      <h2>Random &amp; Dungeons</h2>
+    </article>
+    <article class="create_contener">
+      <form>
+        <h3>Create your Hero</h3>
+        <ul>
+          <li>
+            <p>Character name:</p>
+            <input id="nombre_personaje" type="text" name="nombre_personaje" placeholder="Indroduce tu nombre" value="Indroduce tu nombre">
+          </li>
+          <li>
+            <button type="button" id="abl_roll">Estadistica aleatorias</button>
+            <article class="magenta">Fuerza: <span id="Random_Fuerza">∞</span></article>
+            <article class="magenta">Inteligencia: <span id="Random_Inteligencia">∞</span></article>
+            <article class="magenta">Vitalidad:  <span id="Random_Vitalidad">∞</span></article>
+            <article class="magenta">Voluntad: <span id="Random_Voluntad">∞</span></article>
+            <article class="magenta">Defensa: <span id="Random_Defensa">∞</span></article>
+            <article class="magenta">Agilidad: <span id="Random_Agilidad">∞</span></article>
+          </li>
+          <li>
+            <button type="button" id="Aceptar" disabled>Aceptar</button>
+          </li>
+        </ul>
+      </form>
+    </article>
+  </section>
+
+  <!--La parte donde esta el juego-->
+  <main id="juego">
     <!--Estadistica de jugador situado en izquierda-->
     <!--Boton para abrir panel estadistica-->
     <section id="jugador" onclick="estadistica()">
         <article id="jugadorimagen"></article>
         <section >
           <ul>
-            <li id="nombre">charname</li>
-            <li class="vida">HP: <span></span></li>
-            <li class="mana">SP: <span></span></li>
+            <li id="nombre">Nombre</li>
+            <li class="vida">Vida: <span></span></li>
+            <li class="mana">Mana: <span></span></li>
           </ul>
         </section>
       </section>
@@ -49,73 +82,113 @@
     </aside>
 
 
-
-
-    
-    
-
-    
     <!--Inventario de jugador situado en derecha-->
     <!--Boton para abrir inventario-->
     <section id="inventario" onclick="inventario()">
-        <article id="jugadorimagen"></article>
-        <section >
-          <ul>
-            <li id="nombre">inventario</li>
-            <li class="vida">HP: <span></span></li>
-            <li class="mana">SP: <span></span></li>
-          </ul>
-        </section>
+         <img src="../imagen/backpack.png" >
       </section>
       <!--Inventario de jugador-->
      <aside id="derecha">
         <section id="panelinventario">
             <ul>
-                <li>Nivel:<span></span></li>
-                <li>Experiencia:<span></span>/<span  id="expmax"></span></li>
-                <li>Vida:<span></span></li>
-                <li>Mana:<span></span></li>
-                <hr>
-                <li>Fuerza:<span></span></li>
-                <li>Inteligencia:<span></span></li>
-                <li>Vitalidad:<span></span></li>
-                <li>Voluntad:<span></span></li>
-                <li>Defensa:<span></span></li>
-                <li>Agilidad:<span></span></li>
-                <hr>
-                <li>Fuerza:<span></span></li>
-                <li>Fuerza:<span></span></li>
-                <li>Fuerza:<span></span></li>
-                <li>Fuerza:<span></span></li>
-                <li>Fuerza:<span></span></li>
+                <li class="objeto1">
+                  <h4>Objeto1</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto2">
+                  <h4>Objeto2</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto3">
+                  <h4>Objeto3</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto4">
+                  <h4>Objeto4</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto5">
+                  <h4>Objeto5</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto6">
+                  <h4>Objeto6</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto7">
+                  <h4>Objeto7</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto8">
+                  <h4>Objeto8</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
             </ul>
         </section>
     </aside>
 
+
+
+    <section id="areaopcion">
+      
+      <section id="quehacer">
+        <button onclick="batalla()">Batalla</button>
+        <button>Curar</button>
+        <button>Battle</button>
+        <button>Battle</button>
+        <button>Battle</button>
+      </section>
+
+      <article id="batallaingfo">
+        <ul>
+          <li>hola como estas yo vien y tu pèpe come pepepeep que es no se pe</li>
+        </ul>
+      </article>
+      
+      <section id="batalla">
+        <article id="personaje">
+        <h3>dfsfd</h3>
+        <progress id="vida" value="100" max="100"></progress>
+        <progress id="mana" value="100" max="100"></progress>
+        <img src="../imagen/bowl-of-rice.png" alt="">
+        </article>
+        
+        <article id="Monstruo">
+        <h3>dfsfd</h3>
+        <progress id="monster-vida" value="100" max="100"></progress>
+        <progress id="monster-mana" value="100" max="100"></progress>
+        <img src="../imagen/bowl-of-rice.png" alt="">
+        </article>
+      </section>
+      
+     
+
+      <section id="opciones">
+        <button>Atacar</button>
+        <button>Abilidad</button>
+        <button>Battle</button>
+        <button>Battle</button>
+        <button>Battle</button>
+      </section>
+
+    </section>
+
+
+
+
+
+
+  </main>
 
     
 
 
   
 
-    <section class="interfazjuego">
-        <article></article>
-    </sectio4n>
-
+ 
 
   
 
-    <article class="botones1">
-        <legend>Botones de accion</legend>
-        <button type="button" class="btn1">accion 1</button>
-        <button type="button" class="btn2">accion 2</button>
-        <button type="button" class="btn3">accion 3</button>
-        <button type="button" class="btn4">accion 4</button>
-        <button type="button" class="btn5">accion 5</button>
-        <button type="button" class="btn6">accion 6</button>
-    </article>
-          
-  
    
     
 </body>

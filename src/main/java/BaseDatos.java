@@ -56,12 +56,7 @@ public class BaseDatos {
         }
         else{
             return "Ya existe el Usuario introducido";
-        }
-
-        
-
-        
-        
+        } 
         
     }
     

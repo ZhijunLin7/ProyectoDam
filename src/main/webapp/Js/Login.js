@@ -31,8 +31,8 @@ function login() {
 
                 default:
                     document.getElementById("resultado").innerHTML="Registracion correctamente";
-                    localStorage.setItem("id",http.responseText);
-                    window.location.replace("https://www.google.es/");
+                    localStorage.setItem("id_usuario",http.responseText);
+                    window.location.replace("/demo/html/Game.html");
                     break;
             }
             
