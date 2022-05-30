@@ -52,17 +52,10 @@ public class BaseDatos {
             } else {
                 return "No coincide los dos contrasena";
             }
-
         }
         else{
             return "Ya existe el Usuario introducido";
         }
-
-        
-
-        
-        
-        
     }
     
 }
