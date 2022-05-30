@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Objeto {
     private String nombre;
-    private int idObjeto;
+    private static int idroot = 0;
+    private int id;
     private String descripcion;
     private int cantidad;
 
@@ -46,14 +44,6 @@ public class Objeto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public static void objetoRandom(ArrayList<Objeto> listaObjetos) {
-        Random r = new Random();
-        int idObjeto = r.nextInt(listaObjetos.size());
-        for (int i = 0; i < listaObjetos.size(); i++) {
-
-        }
     }
 
     public void pocionSalud(Jugador jugador) {

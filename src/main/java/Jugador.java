@@ -4,95 +4,40 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Jugador extends Entidad{
-    private int idPersonaje;
-    private int expSubida;
-    private int exp;
     private ArrayList<Objeto> inventario;
 
     public Jugador() {
+    }
+
+    public static void crearjugador() {
         Random r = new Random();
-        this.setFuerza(r.nextInt(4) + 1);
-        this.setAgilidad(r.nextInt(4) + 1);
-        this.setVitalidad(r.nextInt(4) + 1);
-        this.setVoluntad(r.nextInt(4) + 1);
-        this.setInteligencia(r.nextInt(4) + 1);
-        this.setDestreza(r.nextInt(4) + 1);
-        this.setDano(this.getFuerza() * 2);
-        this.setPrecision(this.getDestreza() * 2);
-        this.setVelocidadAtaque(this.getAgilidad() * 2);
-        this.setCritico(this.getDestreza() * 2);
-        this.setDanoCritico(this.getFuerza());
-        this.setEvasion(this.getAgilidad() * 1);
-        this.setDanoMagia(this.getVoluntad() * 2);
-        this.setHpMax(this.getVitalidad() * 4);
-        this.setMpMax(this.getInteligencia() * 3);
-        this.setHp(this.getHpMax());
-        this.setMp(this.getMpMax());
-        this.setDefensa(this.getVitalidad() * 2);
-        this.setCriticoMagico(this.getInteligencia() * 2);
-        this.setDefensaMagica(this.getVoluntad());
-        this.setDanoCriticoMagico(this.getInteligencia());
-    }
-
-    public int getIdPersonaje() {
-        return idPersonaje;
-    }
-
-    public void setIdPersonaje(int idPersonaje) {
-        this.idPersonaje = idPersonaje;
-    }
-
-    public int getExpSubida() {
-        return expSubida;
-    }
-
-    public void setExpSubida(int expSubida) {
-        this.expSubida = expSubida;
-    }
-
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-    public ArrayList<Objeto> getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(ArrayList<Objeto> inventario) {
-        this.inventario = inventario;
+        Jugador jugador = new Jugador();
+        jugador.setNivel(1);
+        jugador.setExpSubida(100);
+        jugador.setExp(0);
+        jugador.setHpMax(r.nextInt(15) + 15);
+        jugador.setHp(jugador.getHpMax());
+        jugador.setMpMax(r.nextInt(10) + 10);
+        jugador.setMp(jugador.getMp());
+        jugador.setFuerza(r.nextInt(9)+1);
+        jugador.setInteligencia(r.nextInt(9)+1);
+        jugador.setDefensa(r.nextInt(9)+1);
     }
 
     public void subirNivel() {
         Random r = new Random();
         int i = 0;
         boolean encontrado = false;
-        if (this.exp >= this.expSubida) {
-            this.setNivel(this.getNivel() + 1);
-            this.exp = this.exp - this.expSubida;
-            this.expSubida = 100 * this.getNivel();
+        if (this.getExp() >= this.getExpSubida()) {
+            this.setHpMax(this.getHpMax() + r.nextInt(4)+1);
             this.setHp(this.getHpMax());
+            this.setMpMax(this.getMpMax() + r.nextInt(4)+1);
             this.setMp(this.getMpMax());
-            this.setFuerza(this.getFuerza() + r.nextInt(4)+1);
-            this.setInteligencia(this.getInteligencia() + r.nextInt(4) + 1);
-            this.setVitalidad(this.getVitalidad() + r.nextInt(4) + 1);
-            this.setVoluntad(this.getVoluntad() + r.nextInt(4) + 1);
-            this.setAgilidad(this.getAgilidad() + r.nextInt(4) + 1);
-            System.out.println("Has subido a nivel "+this.nivel);
-        }
-    }
-
-    public int atacar(int defensaEnemigo) {
-        Random r = new Random();
-        int dado = r.nextInt(5) + 1;
-        if (this.getFuerza() + dado >= defensaEnemigo) {
-            dado = r.nextInt(5) + 1;
-            return dado + this.getFuerza();
-        } else {
-            return 0;
+            this.setFuerza(this.getFuerza() + r.nextInt(1)+1);
+            this.setInteligencia(this.getInteligencia() + r.nextInt(1)+1);
+            this.setDefensa(this.getDefensa() + r.nextInt(1)+1);
+            this.setNivel(this.getNivel()++);
+            this.setExpSubida(this.getNivel() * 100);
         }
     }
 
