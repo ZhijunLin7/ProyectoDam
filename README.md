@@ -23,7 +23,10 @@ El juego no tendrá equipamientos porque las cosas que hay en el inventario te d
 
 ### Despliegue del proyecto 
 
-
+Xampp : version 3.3.0
+Apache-maven : version 3.8.5
+Apache-tomcat : version 9.0.62
+Mysql : version 5.0.37
 
 ### Versiones de tecnologias utilizadas 🔧
 
