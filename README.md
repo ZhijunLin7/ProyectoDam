@@ -44,7 +44,7 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 * **Zhijun Lin** 
 * **Jordi Arroyo Pons** 
-* ** Marc Barceló** 
+* ** Marc Barcelo** 
 
 
 ## Licencia 📄
