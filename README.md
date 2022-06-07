@@ -40,8 +40,6 @@ Sql : Oracle eXpress Edition Version 21.3.0.0.0
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Zhijun Lin** 
 * **Jordi Arroyo Pons** 
 * **Marc Barcelo** 
