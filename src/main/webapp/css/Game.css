@@ -1,0 +1,308 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-weight: bold;
+  background-color: #1d262b;
+  color: white;
+}
+
+/*Seccion de creacion de personaje*/
+
+#charcrear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 30;
+  min-height: 600px;
+  display: none;
+}
+#charcrear.active{
+  display: block;
+}
+
+.create_contener {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#charcrear form {
+  max-width: 300px;
+  border: 1px solid ;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+#charcrear .header{
+  border-bottom: 2px solid;
+}
+
+#charcrear h2 {
+  text-align: center;
+}
+#charcrear ul {
+  list-style-type: none;
+  margin-left: -15%;
+}
+
+#charcrear li {
+  margin-bottom: 5px;
+}
+
+#charcrear button,
+#charcrear input,
+#charcrear select {
+  width: 100%;
+}
+
+#charcrear h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Seccion del juego*/
+#juego{
+  display: block;
+  
+}
+#juego.close{
+  display: none;
+  
+}
+/*Boton para desplegar izquierda*/
+#jugador{
+  background-color: #1d262b;
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 10px;
+  border: 1px solid rgba(255,255,255,.3);
+  padding-right: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+  box-sizing: border-box;
+  border: 2px solid;
+  color: aliceblue;
+  padding-left: 2%;
+}
+#jugador article{
+  float: left;
+  padding: 5px;
+}
+#jugador ul{
+  list-style-type: none;
+}
+/*Seccion que contiene los stats de personaje*/
+#izquierda {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  overflow: hidden;
+  width: calc(100% + 300px);
+  transition: all 0.5s ease;
+  z-index: 8;
+}
+#izquierda.active{
+  left: 0px;
+  z-index: 8;
+}
+/*Panel jugador*/
+#paneljugador {
+  width: 300px;
+  height: 100vh;
+  float: left;
+  border-right: 1px solid ;
+  box-sizing: border-box;
+  padding-top: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 600px;
+  background-color: #1d262b;
+  color: aliceblue;
+}
+#paneljugador ul{
+  list-style-type: none;
+  margin-left: -40px;
+  margin-top: 15%;
+}
+#paneljugador li{
+  margin: 7%;
+}
+
+
+/*Boton para desplegar derecha*/
+#inventario{
+  background-color: #1d262b;
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  border: 1px solid rgba(255,255,255,.3);
+  cursor: pointer;
+  transition: all .3s ease;
+  box-sizing: border-box;
+  border: 2px solid;
+  color: aliceblue;
+  width: 10%;
+  height: 15%;
+}
+
+#inventario ul{
+  list-style-type: none;
+}
+#inventario img{
+  width: 100%;
+  height:100%;
+}
+/*Seccion que contiene los inventario de personaje*/
+#derecha {
+  display: inline;
+  position: absolute;
+  top: 0;
+  right: -300px;
+  overflow: hidden;
+  width: calc(100% + 300px);
+  transition: all 0.5s ease;
+  z-index: 8;
+}
+#derecha.active{
+  right: 0px;
+  z-index: 8;
+}
+/*Panel inventario*/
+#panelinventario {
+  width: 300px;
+  height: 100vh;
+  float: right;
+  border-left: 1px solid ;
+  box-sizing: border-box;
+  padding-top: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 600px;
+  background-color: #1d262b;
+  color: aliceblue;
+  
+
+}
+#panelinventario ul{
+  list-style-type: none;
+  margin-left: -40px;
+  margin-top: 25%;
+  
+}
+#panelinventario li{
+  margin: 7%;
+  border: 3px solid red;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+#panelinventario img{
+  width:  50%;
+  height: 50%;
+}
+
+
+/*Parte juego*/
+#areaopcion{
+  height: 100vh;
+  position: relative;
+  border: 3px solid red;
+}
+
+#quehacer{
+  display: flex;
+  border: 2px solid white;
+  width: 50%;
+  justify-content: space-between;
+  height: 100px;
+  margin-left: 25%;
+  
+}
+#quehacer button{
+  width: 100px;
+  z-index: 9;
+}
+
+
+#batallaingfo{
+  border: 2px solid white;
+  display: block;
+  position: relative;
+  word-break: keep-all;
+  overflow: auto;
+  height: 20%;
+}
+
+
+#batalla{
+  border: 2px solid white;
+  justify-content: space-around;
+  position:relative;
+  display: inline-flex;
+  width: 100%;
+  margin-top: 10%;
+}
+#batalla progress{
+  display: flex;
+
+}
+#batalla img{
+  width: 20%;
+
+
+}
+#batalla #jug-vida,#monster-vida{
+  width: 90%;
+
+}
+
+
+
+
+#opciones{
+  display: none;
+  border: 2px solid white;
+  width: 50%;
+  margin-left: 25%;
+  justify-content: space-between;
+  height: 100px;
+  position: absolute;
+  bottom: -100px;
+  transition: all .3s ease;
+  
+}
+#opciones.active{
+  bottom: 0px;
+  
+}
+
+#opciones button{
+  width: 100px;
+  z-index: 9;
+}
+
+
+
+
+

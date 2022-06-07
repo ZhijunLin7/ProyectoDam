@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Door's Game </title>
+    <link rel="stylesheet" href="..\css\Game.css">
+    <script src="..\Js\Game.js"></script>
+
+
+</head>
+<body onpageshow="info_jugador()">
+ 
+  <section id="charcrear">
+    <article class="header">
+      <h2>Random &amp; Dungeons</h2>
+    </article>
+    <article class="create_contener">
+      <form>
+        <h3>Create your Hero</h3>
+        <ul>
+          <li>
+            <p>Character name:</p>
+            <input id="nombre_personaje" type="text" name="nombre_personaje" placeholder="Indroduce tu nombre" value="Indroduce tu nombre">
+          </li>
+          <li>
+            <button type="button" id="abl_roll" onclick="random_stats()">Estadistica aleatorias</button>
+            <article>Fuerza: <span id="Random_Fuerza">∞</span></article>
+            <article>Inteligencia: <span id="Random_Inteligencia">∞</span></article>
+            <article>Vitalidad:  <span id="Random_Vitalidad">∞</span></article>
+            <article>Voluntad: <span id="Random_Voluntad">∞</span></article>
+            <article>Defensa: <span id="Random_Defensa">∞</span></article>
+            <article>Agilidad: <span id="Random_Agilidad">∞</span></article>
+          </li>
+          <li>
+            <button type="button" id="Comenzar" onclick="comenzar()" disabled>Comenzar</button>
+          </li>
+        </ul>
+      </form>
+    </article>
+  </section>
+
+  <!--La parte donde esta el juego-->
+  <main id="juego">
+    <!--Estadistica de jugador situado en izquierda-->
+    <!--Boton para abrir panel estadistica-->
+    <section id="jugador" onclick="estadistica()">
+        <article id="jugadorimagen"></article>
+        <section>
+          <ul>
+            <li>Nombre:<span id="nom_personaje"></span></li>
+            <li>Vida:<span id="Vida"></span></li>
+            <li>Mana:<span id="Mana"></span></li>
+          </ul>
+        </section>
+      </section>
+    <!--Panel estadistica-->
+     <aside id="izquierda">
+        <section id="paneljugador">
+            <ul>
+                <li>Nivel:<span id="NIVEL"></span></li>
+                <li>Experiencia:<span id="EXPERIENCIA"></span>/<span id="EXPERIENCIA_MAX"></span></li>
+                <li>Vida-Max:<span id="VIDA_MAX"></span></li>
+                <li>Mana-Max:<span id="MAGIA_MAXIMA"></span></li>
+                <hr>
+                <li>Fuerza:<span id="FUERZA"></span></li>
+                <li>Inteligencia:<span id="Inteligencia"></span></li>
+                <li>Vitalidad:<span id="Vitalidad"></span></li>
+                <li>Voluntad:<span id="Voluntad"></span></li>
+                <li>Defensa:<span id="Defensa"></span></li>
+                <li>Agilidad:<span id="Agilidad"></span></li>
+                <hr>
+                <li>Habitacion:<span id="Habitacion"></span></li>
+                <li>Oro:<span id="Oro"></span></li>
+            </ul>
+        </section>
+    </aside>
+
+
+    <!--Inventario de jugador situado en derecha-->
+    <!--Boton para abrir inventario-->
+    <section id="inventario" onclick="inventario()">
+         <img src="../imagen/backpack.png" >
+      </section>
+      <!--Inventario de jugador-->
+     <aside id="derecha">
+        <section id="panelinventario">
+            <ul>
+                <li class="objeto1">
+                  <h4>Objeto1</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto2">
+                  <h4>Objeto2</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto3">
+                  <h4>Objeto3</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto4">
+                  <h4>Objeto4</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto5">
+                  <h4>Objeto5</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto6">
+                  <h4>Objeto6</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto7">
+                  <h4>Objeto7</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+                <li class="objeto8">
+                  <h4>Objeto8</h4>
+                  <img src="../imagen/bowl-of-rice.png" alt="">
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+
+
+    <section id="areaopcion">
+      
+      <section id="quehacer">
+        <button onclick="batalla()">Batalla</button>
+        <button>Curar</button>
+        <button onclick="getmonstruo()">getmon</button>
+        <button>Battle</button>
+        <button>Battle</button>
+      </section>
+
+     
+      
+      <section id="batalla">
+        <article id="personaje">
+        <h3>Heroe</h3>
+        <progress id="jug-vida" value="100" max="100"></progress>
+        <progress id="jug-mana" value="100" max="100"></progress>
+        <img src="../imagen/bowl-of-rice.png" alt="">
+        </article>
+        
+        <article id="Monstruo">
+        <h3>Monstruo</h3>
+        <progress id="monster-vida" value="100" max="100"></progress>
+        <progress id="monster-mana" value="100" max="100"></progress>
+        <img src="../imagen/bowl-of-rice.png" alt="">
+        </article>
+      </section>
+      
+      <article id="batallaingfo">
+        <ul>
+          <li>Bienvenido que deseas hacer?</li>
+        </ul>
+      </article>
+
+      <section id="opciones">
+        <button>Atacar</button>
+        <button>Abilidad</button>
+        <button>Battle</button>
+        <button>Battle</button>
+        <button>Battle</button>
+      </section>
+
+    </section>
+
+
+
+
+
+
+  </main>
+
+    
+
+
+  
+
+ 
+
+  
+
+   
+    
+</body>
+</html>
