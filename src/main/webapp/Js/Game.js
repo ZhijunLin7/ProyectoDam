@@ -23,7 +23,7 @@ function getmonstruo() {
         http.onreadystatechange = function () {
             if (http.readyState == 4 && http.status == 200) {
                 var estatsmons = http.responseText;
-                sessionStorage("Estatmons",estatsmons);
+                colocarmons(estatsmons);
                 
             }
         }
@@ -47,20 +47,7 @@ function info_jugador() {
            }
            else{
                 var txt = http.responseText;
-                var temp = txt.split(",");
-            
-                var datos =["nom_personaje","Vida","Mana","NIVEL","EXPERIENCIA","EXPERIENCIA_MAX","VIDA_MAX","MAGIA_MAXIMA","FUERZA","Inteligencia","Vitalidad","Voluntad","Defensa","Agilidad","Habitacion","Oro"]
-                var posicion = 1;
-                for (let j = 0; j < datos.length; j++) {
-                    if (j==0) {
-                        document.getElementById(datos[j]).innerHTML=temp[posicion];
-                        sessionStorage.setItem(datos[j],temp[posicion]);
-                    } else {
-                        document.getElementById(datos[j]).innerHTML=temp[posicion];
-                        sessionStorage.setItem(datos[j],temp[posicion]);
-                    }
-                    posicion = posicion +2;
-                }
+                colocar(txt);
             }
         }
     }
@@ -78,7 +65,18 @@ function random_stats() {
         http.onreadystatechange = function () {
             if (http.readyState == 4 && http.status == 200) {
                 var estats = http.responseText;
-                colocar(estats);
+                var temp = estats.split(",");
+                var datos =["Random_Fuerza","Random_Inteligencia","Random_Vitalidad","Random_Voluntad","Random_Defensa","Random_Agilidad"]
+                document.getElementById("Comenzar").disabled= false;
+                var posicion = 1;
+                for (let j = 0; j < datos.length; j++) {
+                    if (j == 0) {
+                        document.getElementById(datos[j]).innerHTML=temp[posicion];
+                    } else {
+                        document.getElementById(datos[j]).innerHTML=temp[posicion];
+                    }
+                    posicion = posicion +2;
+                }
 
             }
         }
@@ -105,12 +103,18 @@ function comenzar() {
         }
 
     }
-
+    var stat;
+    for (let x = 0; x < datos.length; x++) {
+        var stat =stat + datos[x]+","+estat[x]+","
+            
+    }
+    sessionStorage.setItem("EstatJug",stat);
+  
    
 }
 
 function colocar(txt) {
-    sessionStorage("EstatJug",txt);
+    sessionStorage.setItem("EstatJug",txt);
     var datos =["nom_personaje","Vida","Mana","NIVEL","EXPERIENCIA","EXPERIENCIA_MAX","VIDA_MAX","MAGIA_MAXIMA","FUERZA","Inteligencia","Vitalidad","Voluntad","Defensa","Agilidad","Habitacion","Oro"]
     var temp = txt.split(",");
     var posicion = 1;
@@ -122,20 +126,42 @@ function colocar(txt) {
         }
         posicion = posicion +2;
     }
-    
+    var vida =parseInt(temp[3])*100/parseInt(temp[13]);
+    var mana =parseInt(temp[5])*100/parseInt(temp[15]);
+    document.getElementById("jug-vida").value=vida;
+    document.getElementById("jug-mana").value=mana;
 }
 function colocarmons(txt) {
-    sessionStorage("EstatJug",txt);
-    var datos =["nom_personaje","Vida","Mana","NIVEL","EXPERIENCIA","EXPERIENCIA_MAX","VIDA_MAX","MAGIA_MAXIMA","FUERZA","Inteligencia","Vitalidad","Voluntad","Defensa","Agilidad","Habitacion","Oro"]
+    sessionStorage.setItem("Estatmons",txt);
     var temp = txt.split(",");
-    var posicion = 1;
-    for (let j = 0; j < datos.length; j++) {
-        if (j == 0) {
-            document.getElementById(datos[j]).innerHTML=temp[posicion];
-        } else {
-            document.getElementById(datos[j]).innerHTML=temp[posicion];
-        }
-        posicion = posicion +2;
-    }
+    var vida =parseInt(temp[11])*100/parseInt(temp[7]);
+    var mana =parseInt(temp[13])*100/parseInt(temp[9]);
+    document.getElementById("nombre_mons").innerHTML=temp[3];
+    document.getElementById("monster-vida").value=vida;
+    document.getElementById("monster-mana").value=mana;
+
     
 }
+
+function Atacar() {
+    var http;
+    http = new XMLHttpRequest;
+    http.onreadystatechange = function (){
+        if (http.readyState==4 && http.status==200){
+           var respuesta = http.responseText;
+           var resp =respuesta.split(";");
+            colocar(resp[0]);
+            colocarmons(resp[1]);
+
+            document.getElementById("batallaingfo").getElementsByTagName("ul")[0].appendChild(document.createElement("li").appendChild(document.createTextNode(resp[2])));
+            document.getElementById("batallaingfo").getElementsByTagName("ul")[0].appendChild(document.createElement("hr"));
+
+
+        }
+    }
+
+    http.open("POST","http://localhost:7070/demo/Datos",true);
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    http.send("Estatjug="+sessionStorage.getItem("EstatJug")+"&&Estatmons="+sessionStorage.getItem("Estatmons"));
+}
+

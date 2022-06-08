@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+    
+        <li>nom_personaje:<span id="nom_personaje"></span></li>
+        <li>Vida:<span id="Vida"></span></li>
+    
+    </ul>
+    <button onclick="info_jugador()">cosas</button>
+
+
+    <script>
+        function info_jugador(params) {
+            var txt = "nom_personaje,pepe,Vida,60"
+            var temp = txt.split(",");
+        
+            var datos =["nom_personaje","Vida"]
+            
+            for (let j = 0; j < datos.length; j++) {
+                if (j==0) {
+                    document.getElementById(datos[j]).innerHTML=temp[j+1];
+                } else {
+                    document.getElementById(datos[j]).innerHTML=temp[j+2];
+                }
+            }
+        }
+
+  
+    </script>
+</body>
+</html>
